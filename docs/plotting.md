@@ -96,7 +96,7 @@ Strategy arguments:
 Example:
 
 ``` bash
-freqtrade plot-dataframe -p BTC/ETH
+freqtrade plot-dataframe -p BTC/ETH --strategy AwesomeStrategy
 ```
 
 The `-p/--pairs` argument can be used to specify pairs you would like to plot.
@@ -106,9 +106,6 @@ The `-p/--pairs` argument can be used to specify pairs you would like to plot.
 
 Specify custom indicators.
 Use `--indicators1` for the main plot and `--indicators2` for the subplot below (if values are in a different range than prices).
-
-!!! Tip
-    You will almost certainly want to specify a custom strategy! This can be done by adding `-s Classname` / `--strategy ClassName` to the command.
 
 ``` bash
 freqtrade plot-dataframe --strategy AwesomeStrategy -p BTC/ETH --indicators1 sma ema --indicators2 macd
@@ -275,10 +272,6 @@ def plot_config(self):
 
 !!! Note "Trade position adjustments"
     If `position_adjustment_enable` / `adjust_trade_position()` is used, the trade initial buy price is averaged over multiple orders and the trade start price will most likely appear outside the candle range.
-
-!!! Note "Futures / Margin trading"
-    `plot-dataframe` does not support Futures / short trades, so these trades will simply be missing, and it's unlikely we'll be adding this functionality to this command.
-    Please use freqUI instead by starting freqtrade in [webserver mode](utils.md#webserver-mode) and use the Chart page to plot your dataframe.
 
 ## Plot profit
 
